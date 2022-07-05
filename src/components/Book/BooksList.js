@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteBooks } from "../../store/booksSlice";
+import "./BooksList.css";
 
 const BooksList = (props) => {
   const dispatch = useDispatch();
@@ -35,7 +36,10 @@ const BooksList = (props) => {
       <h3>Books List</h3>
       <ul className="list-group">
         {props.isLoading ? (
-          <p>Fetching data from the server... Please Wait</p>
+          <p className="alert alert-secondary flex-message" role="alert">
+            Fetching data from the server Please Wait{" "}
+            <span className="dot-pulse"></span>
+          </p>
         ) : props.error ? (
           <p className="alert alert-danger" role="alert">
             {`${props.error} books data.`}
